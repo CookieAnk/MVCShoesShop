@@ -1,0 +1,63 @@
+﻿@model MVCShoesShop.Models.CT_PHIEU_GIAO_HANG
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center; font-weight:bold">Xóa phiếu giao hàng</h2>
+
+<h3 style="text-align:center; font-weight:bold">Bạn có muốn xóa phiếu giao hàng này?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <h3 style="font-weight:bold">Thông tin phiếu giao hàng</h3>
+        @*Tên sản phẩm*@
+        <dt>
+            Tên sản phẩm :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SAN_PHAM.TenSP)
+        </dd>
+        @*Số lượng*@
+        <dt>
+            Số lượng :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+        @*Đơn giá*@
+        <dt>
+            Đơn giá :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DonGia) $
+        </dd>
+        @*Thành tiền*@
+        <dt>
+            Thành tiền :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ThanhTien) $
+        </dd>
+        @*Ghi chú*@
+        <dt>
+            Ghi chú :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PHIEU_GIAO_HANG.GhiChu)
+        </dd>
+        @*Button*@
+        <dt></dt>
+        <dd>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-actions no-color">
+                    <input type="submit" value="Xóa" class="btn btn-default" /> |
+                    @Html.ActionLink("Trở về", "Index")
+                </div>
+            }
+        </dd>
+    </dl>
+</div>

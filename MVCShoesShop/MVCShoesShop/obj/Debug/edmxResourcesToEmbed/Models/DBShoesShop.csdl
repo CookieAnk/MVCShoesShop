@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShoesShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CT_DON_DAT_HANG">
+    <Key>
+      <PropertyRef Name="MaDDH" />
+      <PropertyRef Name="MaSP" />
+    </Key>
+    <Property Name="MaDDH" Type="Int32" Nullable="false" />
+    <Property Name="MaSP" Type="Int32" Nullable="false" />
+    <Property Name="SoLuong" Type="Int32" />
+    <NavigationProperty Name="DON_DAT_HANG" Relationship="Self.FK__CT_DON_DA__MaDDH__1B0907CE" FromRole="CT_DON_DAT_HANG" ToRole="DON_DAT_HANG" />
+    <NavigationProperty Name="SAN_PHAM" Relationship="Self.FK__CT_DON_DAT__MaSP__1BFD2C07" FromRole="CT_DON_DAT_HANG" ToRole="SAN_PHAM" />
+    <Property Name="DonGia" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ThanhTien" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="CT_HOA_DON">
+    <Key>
+      <PropertyRef Name="MaCTHD" />
+    </Key>
+    <Property Name="MaCTHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaHD" Type="Int32" />
+    <Property Name="MaSP" Type="Int32" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="DonGia" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ThanhTien" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="HOA_DON" Relationship="Self.FK__CT_HOA_DON__MaHD__1273C1CD" FromRole="CT_HOA_DON" ToRole="HOA_DON" />
+    <NavigationProperty Name="SAN_PHAM" Relationship="Self.FK__CT_HOA_DON__MaSP__1367E606" FromRole="CT_HOA_DON" ToRole="SAN_PHAM" />
+  </EntityType>
+  <EntityType Name="CT_PHIEU_GIAO_HANG">
+    <Key>
+      <PropertyRef Name="MaPGH" />
+      <PropertyRef Name="MaSP" />
+    </Key>
+    <Property Name="MaPGH" Type="Int32" Nullable="false" />
+    <Property Name="MaSP" Type="Int32" Nullable="false" />
+    <Property Name="SoLuong" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DonGia" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ThanhTien" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="PHIEU_GIAO_HANG" Relationship="Self.FK__CT_PHIEU___MaPGH__239E4DCF" FromRole="CT_PHIEU_GIAO_HANG" ToRole="PHIEU_GIAO_HANG" />
+    <NavigationProperty Name="SAN_PHAM" Relationship="Self.FK__CT_PHIEU_G__MaSP__24927208" FromRole="CT_PHIEU_GIAO_HANG" ToRole="SAN_PHAM" />
+  </EntityType>
+  <EntityType Name="DON_DAT_HANG">
+    <Key>
+      <PropertyRef Name="MaDDH" />
+    </Key>
+    <Property Name="MaDDH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NgayLapDDH" Type="DateTime" Precision="0" />
+    <Property Name="MaKH" Type="Int32" />
+    <NavigationProperty Name="CT_DON_DAT_HANG" Relationship="Self.FK__CT_DON_DA__MaDDH__1B0907CE" FromRole="DON_DAT_HANG" ToRole="CT_DON_DAT_HANG" />
+    <NavigationProperty Name="KHACH_HANG" Relationship="Self.FK__DON_DAT_HA__MaKH__182C9B23" FromRole="DON_DAT_HANG" ToRole="KHACH_HANG" />
+  </EntityType>
+  <EntityType Name="HOA_DON">
+    <Key>
+      <PropertyRef Name="MaHD" />
+    </Key>
+    <Property Name="MaHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaKH" Type="Int32" />
+    <Property Name="NgayLapHD" Type="DateTime" Precision="0" />
+    <Property Name="HinhThucThanhToan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TongTien" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="CT_HOA_DON" Relationship="Self.FK__CT_HOA_DON__MaHD__1273C1CD" FromRole="HOA_DON" ToRole="CT_HOA_DON" />
+    <NavigationProperty Name="KHACH_HANG" Relationship="Self.FK__HOA_DON__MaKH__0DAF0CB0" FromRole="HOA_DON" ToRole="KHACH_HANG" />
+  </EntityType>
+  <EntityType Name="KHACH_HANG">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IDLogin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DON_DAT_HANG" Relationship="Self.FK__DON_DAT_HA__MaKH__182C9B23" FromRole="KHACH_HANG" ToRole="DON_DAT_HANG" />
+    <NavigationProperty Name="HOA_DON" Relationship="Self.FK__HOA_DON__MaKH__0DAF0CB0" FromRole="KHACH_HANG" ToRole="HOA_DON" />
+    <NavigationProperty Name="PHIEU_GIAO_HANG" Relationship="Self.FK__PHIEU_GIAO__MaKH__20C1E124" FromRole="KHACH_HANG" ToRole="PHIEU_GIAO_HANG" />
+  </EntityType>
+  <EntityType Name="LOAI_SAN_PHAM">
+    <Key>
+      <PropertyRef Name="MaLoaiSP" />
+    </Key>
+    <Property Name="MaLoaiSP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SAN_PHAM" Relationship="Self.FK__SAN_PHAM__MaLoai__08EA5793" FromRole="LOAI_SAN_PHAM" ToRole="SAN_PHAM" />
+  </EntityType>
+  <EntityType Name="PHIEU_GIAO_HANG">
+    <Key>
+      <PropertyRef Name="MaPGH" />
+    </Key>
+    <Property Name="MaPGH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaKH" Type="Int32" />
+    <NavigationProperty Name="CT_PHIEU_GIAO_HANG" Relationship="Self.FK__CT_PHIEU___MaPGH__239E4DCF" FromRole="PHIEU_GIAO_HANG" ToRole="CT_PHIEU_GIAO_HANG" />
+    <NavigationProperty Name="KHACH_HANG" Relationship="Self.FK__PHIEU_GIAO__MaKH__20C1E124" FromRole="PHIEU_GIAO_HANG" ToRole="KHACH_HANG" />
+    <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SAN_PHAM">
+    <Key>
+      <PropertyRef Name="MaSP" />
+    </Key>
+    <Property Name="MaSP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenSP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaLoaiSP" Type="Int32" />
+    <Property Name="SoLuongCon" Type="Int32" />
+    <Property Name="DonGia" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Images" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CT_DON_DAT_HANG" Relationship="Self.FK__CT_DON_DAT__MaSP__1BFD2C07" FromRole="SAN_PHAM" ToRole="CT_DON_DAT_HANG" />
+    <NavigationProperty Name="CT_HOA_DON" Relationship="Self.FK__CT_HOA_DON__MaSP__1367E606" FromRole="SAN_PHAM" ToRole="CT_HOA_DON" />
+    <NavigationProperty Name="CT_PHIEU_GIAO_HANG" Relationship="Self.FK__CT_PHIEU_G__MaSP__24927208" FromRole="SAN_PHAM" ToRole="CT_PHIEU_GIAO_HANG" />
+    <NavigationProperty Name="LOAI_SAN_PHAM" Relationship="Self.FK__SAN_PHAM__MaLoai__08EA5793" FromRole="SAN_PHAM" ToRole="LOAI_SAN_PHAM" />
+  </EntityType>
+  <Association Name="FK__CT_DON_DA__MaDDH__1B0907CE">
+    <End Role="DON_DAT_HANG" Type="Self.DON_DAT_HANG" Multiplicity="1" />
+    <End Role="CT_DON_DAT_HANG" Type="Self.CT_DON_DAT_HANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DON_DAT_HANG">
+        <PropertyRef Name="MaDDH" />
+      </Principal>
+      <Dependent Role="CT_DON_DAT_HANG">
+        <PropertyRef Name="MaDDH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CT_DON_DAT__MaSP__1BFD2C07">
+    <End Role="SAN_PHAM" Type="Self.SAN_PHAM" Multiplicity="1" />
+    <End Role="CT_DON_DAT_HANG" Type="Self.CT_DON_DAT_HANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SAN_PHAM">
+        <PropertyRef Name="MaSP" />
+      </Principal>
+      <Dependent Role="CT_DON_DAT_HANG">
+        <PropertyRef Name="MaSP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CT_HOA_DON__MaHD__1273C1CD">
+    <End Role="HOA_DON" Type="Self.HOA_DON" Multiplicity="0..1" />
+    <End Role="CT_HOA_DON" Type="Self.CT_HOA_DON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOA_DON">
+        <PropertyRef Name="MaHD" />
+      </Principal>
+      <Dependent Role="CT_HOA_DON">
+        <PropertyRef Name="MaHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CT_HOA_DON__MaSP__1367E606">
+    <End Role="SAN_PHAM" Type="Self.SAN_PHAM" Multiplicity="0..1" />
+    <End Role="CT_HOA_DON" Type="Self.CT_HOA_DON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SAN_PHAM">
+        <PropertyRef Name="MaSP" />
+      </Principal>
+      <Dependent Role="CT_HOA_DON">
+        <PropertyRef Name="MaSP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CT_PHIEU___MaPGH__239E4DCF">
+    <End Role="PHIEU_GIAO_HANG" Type="Self.PHIEU_GIAO_HANG" Multiplicity="1" />
+    <End Role="CT_PHIEU_GIAO_HANG" Type="Self.CT_PHIEU_GIAO_HANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIEU_GIAO_HANG">
+        <PropertyRef Name="MaPGH" />
+      </Principal>
+      <Dependent Role="CT_PHIEU_GIAO_HANG">
+        <PropertyRef Name="MaPGH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CT_PHIEU_G__MaSP__24927208">
+    <End Role="SAN_PHAM" Type="Self.SAN_PHAM" Multiplicity="1" />
+    <End Role="CT_PHIEU_GIAO_HANG" Type="Self.CT_PHIEU_GIAO_HANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SAN_PHAM">
+        <PropertyRef Name="MaSP" />
+      </Principal>
+      <Dependent Role="CT_PHIEU_GIAO_HANG">
+        <PropertyRef Name="MaSP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DON_DAT_HA__MaKH__182C9B23">
+    <End Role="KHACH_HANG" Type="Self.KHACH_HANG" Multiplicity="0..1" />
+    <End Role="DON_DAT_HANG" Type="Self.DON_DAT_HANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACH_HANG">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="DON_DAT_HANG">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HOA_DON__MaKH__0DAF0CB0">
+    <End Role="KHACH_HANG" Type="Self.KHACH_HANG" Multiplicity="0..1" />
+    <End Role="HOA_DON" Type="Self.HOA_DON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACH_HANG">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="HOA_DON">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHIEU_GIAO__MaKH__20C1E124">
+    <End Role="KHACH_HANG" Type="Self.KHACH_HANG" Multiplicity="0..1" />
+    <End Role="PHIEU_GIAO_HANG" Type="Self.PHIEU_GIAO_HANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACH_HANG">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="PHIEU_GIAO_HANG">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SAN_PHAM__MaLoai__08EA5793">
+    <End Role="LOAI_SAN_PHAM" Type="Self.LOAI_SAN_PHAM" Multiplicity="0..1" />
+    <End Role="SAN_PHAM" Type="Self.SAN_PHAM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAI_SAN_PHAM">
+        <PropertyRef Name="MaLoaiSP" />
+      </Principal>
+      <Dependent Role="SAN_PHAM">
+        <PropertyRef Name="MaLoaiSP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ShoesShopEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CT_DON_DAT_HANG" EntityType="Self.CT_DON_DAT_HANG" />
+    <EntitySet Name="CT_HOA_DON" EntityType="Self.CT_HOA_DON" />
+    <EntitySet Name="CT_PHIEU_GIAO_HANG" EntityType="Self.CT_PHIEU_GIAO_HANG" />
+    <EntitySet Name="DON_DAT_HANG" EntityType="Self.DON_DAT_HANG" />
+    <EntitySet Name="HOA_DON" EntityType="Self.HOA_DON" />
+    <EntitySet Name="KHACH_HANG" EntityType="Self.KHACH_HANG" />
+    <EntitySet Name="LOAI_SAN_PHAM" EntityType="Self.LOAI_SAN_PHAM" />
+    <EntitySet Name="PHIEU_GIAO_HANG" EntityType="Self.PHIEU_GIAO_HANG" />
+    <EntitySet Name="SAN_PHAM" EntityType="Self.SAN_PHAM" />
+    <AssociationSet Name="FK__CT_DON_DA__MaDDH__1B0907CE" Association="Self.FK__CT_DON_DA__MaDDH__1B0907CE">
+      <End Role="DON_DAT_HANG" EntitySet="DON_DAT_HANG" />
+      <End Role="CT_DON_DAT_HANG" EntitySet="CT_DON_DAT_HANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CT_DON_DAT__MaSP__1BFD2C07" Association="Self.FK__CT_DON_DAT__MaSP__1BFD2C07">
+      <End Role="SAN_PHAM" EntitySet="SAN_PHAM" />
+      <End Role="CT_DON_DAT_HANG" EntitySet="CT_DON_DAT_HANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CT_HOA_DON__MaHD__1273C1CD" Association="Self.FK__CT_HOA_DON__MaHD__1273C1CD">
+      <End Role="HOA_DON" EntitySet="HOA_DON" />
+      <End Role="CT_HOA_DON" EntitySet="CT_HOA_DON" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CT_HOA_DON__MaSP__1367E606" Association="Self.FK__CT_HOA_DON__MaSP__1367E606">
+      <End Role="SAN_PHAM" EntitySet="SAN_PHAM" />
+      <End Role="CT_HOA_DON" EntitySet="CT_HOA_DON" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CT_PHIEU___MaPGH__239E4DCF" Association="Self.FK__CT_PHIEU___MaPGH__239E4DCF">
+      <End Role="PHIEU_GIAO_HANG" EntitySet="PHIEU_GIAO_HANG" />
+      <End Role="CT_PHIEU_GIAO_HANG" EntitySet="CT_PHIEU_GIAO_HANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CT_PHIEU_G__MaSP__24927208" Association="Self.FK__CT_PHIEU_G__MaSP__24927208">
+      <End Role="SAN_PHAM" EntitySet="SAN_PHAM" />
+      <End Role="CT_PHIEU_GIAO_HANG" EntitySet="CT_PHIEU_GIAO_HANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DON_DAT_HA__MaKH__182C9B23" Association="Self.FK__DON_DAT_HA__MaKH__182C9B23">
+      <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
+      <End Role="DON_DAT_HANG" EntitySet="DON_DAT_HANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HOA_DON__MaKH__0DAF0CB0" Association="Self.FK__HOA_DON__MaKH__0DAF0CB0">
+      <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
+      <End Role="HOA_DON" EntitySet="HOA_DON" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHIEU_GIAO__MaKH__20C1E124" Association="Self.FK__PHIEU_GIAO__MaKH__20C1E124">
+      <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
+      <End Role="PHIEU_GIAO_HANG" EntitySet="PHIEU_GIAO_HANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SAN_PHAM__MaLoai__08EA5793" Association="Self.FK__SAN_PHAM__MaLoai__08EA5793">
+      <End Role="LOAI_SAN_PHAM" EntitySet="LOAI_SAN_PHAM" />
+      <End Role="SAN_PHAM" EntitySet="SAN_PHAM" />
+    </AssociationSet>
+    <EntitySet Name="DANG_NHAP" EntityType="ShoesShopModel.DANG_NHAP" />
+  </EntityContainer>
+  <EntityType Name="DANG_NHAP">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pass" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PhanQuyen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4 style="color:red; text-align:center; font-weight:bold">@ViewBag.Thongbao</h4>
+<h1 style="text-align:center; font-weight:bold">Login</h1>
+<table align="center">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height:40px">
+            <td style="text-align:right">
+                <strong>Username :</strong>
+            </td>
+            <td>
+                &nbsp; &nbsp;@Html.TextBox("username")
+                @ViewData["Loi1"]
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td style="text-align:right">
+                <strong>Password :</strong>
+            </td>
+            <td>
+                &nbsp; &nbsp;@Html.Password("password")
+                @ViewData["Loi2"]
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td></td>
+            <td>
+                <input type="submit" value="Login" />
+            </td>
+        </tr>
+    }
+</table>
+

@@ -1,0 +1,52 @@
+﻿@model MVCShoesShop.Models.KHACH_HANG
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="font-weight:bold">Chi tiết khách hàng</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        @*Tên khách hàng*@
+        <dt>
+            Tên khách hàng :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TenKH)
+        </dd>
+        @*Địa chỉ*@
+        <dt>
+            Địa chỉ :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+        @*Số điện thoại*@
+        <dt>
+            Số điện thoại :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+        @*Email*@
+        <dt>
+            Email :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        @*Tài khoản*@
+        <dt>
+            Tài khoản :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IDLogin)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Trở về", "Index")
+</p>

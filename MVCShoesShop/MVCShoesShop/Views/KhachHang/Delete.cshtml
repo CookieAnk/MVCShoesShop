@@ -1,0 +1,59 @@
+﻿@model MVCShoesShop.Models.KHACH_HANG
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="font-weight:bold">Xóa thông tin khách hàng</h2>
+
+<h3>Bạn có muốn xóa thông tin khách hàng này?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        @*Tên khách hàng*@
+        <dt>
+            Tên khách hàng :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TenKH)
+        </dd>
+        @*Địa chỉ*@
+        <dt>
+            Địa chỉ :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+        @*Số điện thoại*@
+        <dt>
+            Số điện thoại :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+        @*Email*@
+        <dt>
+            Email :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        @*Tên đăng nhập*@
+        <dt>
+            Tên đăng nhập :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IDLogin)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về", "Index")
+        </div>
+    }
+</div>

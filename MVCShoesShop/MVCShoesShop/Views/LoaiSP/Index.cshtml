@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MVCShoesShop.Models.LOAI_SAN_PHAM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="font-weight:bold; text-align:center">Quản lý loại sản phẩm</h1>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã loại sản phẩm
+        </th>
+        <th>
+            Tên loại sản phẩm
+        </th>
+        <th style="text-align:center"></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaLoaiSP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenLoai)
+        </td>
+        <td style="text-align:center">
+            @Html.ActionLink("Sửa", "Edit", new { id = item.MaLoaiSP }) |
+            @Html.ActionLink("Xóa", "Delete", new { id = item.MaLoaiSP })
+        </td>
+    </tr>
+}
+
+</table>

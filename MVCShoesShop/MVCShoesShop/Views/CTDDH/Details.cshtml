@@ -1,0 +1,86 @@
+﻿@model MVCShoesShop.Models.CT_DON_DAT_HANG
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="text-align:center; font-weight:bold">Chi tiết đơn đặt hàng</h1>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <h3 style="font-weight:bold">Thông tin khách hàng</h3>
+        @*Tên khách hàng*@
+        <dt>
+            Tên khách hàng :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DON_DAT_HANG.KHACH_HANG.TenKH)
+        </dd>
+        @*Địa chỉ*@
+        <dt>
+            Địa chỉ :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DON_DAT_HANG.KHACH_HANG.DiaChi)
+        </dd>
+        @*SĐT*@
+        <dt>
+            SĐT :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DON_DAT_HANG.KHACH_HANG.SDT)
+        </dd>
+        @*Email*@
+        <dt>
+            Email :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DON_DAT_HANG.KHACH_HANG.Email)
+        </dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <h3 style="font-weight:bold">Thông tin đơn đặt hàng</h3>
+        @*Tên sản phẩm*@
+        <dt>
+            Tên sản phẩm :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SAN_PHAM.TenSP)
+        </dd>
+        @*Số lượng*@
+        <dt>
+            Số lượng :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+        @*Đơn giá*@
+        <dt>
+            Đơn giá :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DonGia) $
+        </dd>
+        @*Thành tiền*@
+        <dt>
+            Thành tiền :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ThanhTien) $
+        </dd>
+        @*Ghi chú*@
+        <dt>
+            Ngày lập đơn :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DON_DAT_HANG.NgayLapDDH)
+        </dd>
+        @*Button*@
+        <dt></dt>
+        <dd>
+            @Html.ActionLink("Back to List", "Index")
+        </dd>
+    </dl>
+</div>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="25524d120cf145b98f4725e19aaa6087" Name="Diagram1">
+        <EntityTypeShape EntityType="ShoesShopModel.CT_DON_DAT_HANG" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShoesShopModel.CT_HOA_DON" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShoesShopModel.CT_PHIEU_GIAO_HANG" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShoesShopModel.DON_DAT_HANG" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShoesShopModel.HOA_DON" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShoesShopModel.KHACH_HANG" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShoesShopModel.LOAI_SAN_PHAM" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShoesShopModel.PHIEU_GIAO_HANG" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShoesShopModel.SAN_PHAM" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <AssociationConnector Association="ShoesShopModel.FK__CT_DON_DA__MaDDH__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="ShoesShopModel.FK__CT_DON_DAT__MaSP__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="ShoesShopModel.FK__CT_HOA_DON__MaHD__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="ShoesShopModel.FK__CT_HOA_DON__MaSP__1367E606" ManuallyRouted="false" />
+        <AssociationConnector Association="ShoesShopModel.FK__CT_PHIEU___MaPGH__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="ShoesShopModel.FK__CT_PHIEU_G__MaSP__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="ShoesShopModel.FK__DON_DAT_HA__MaKH__182C9B23" ManuallyRouted="false" />
+        <AssociationConnector Association="ShoesShopModel.FK__HOA_DON__MaKH__0DAF0CB0" ManuallyRouted="false" />
+        <AssociationConnector Association="ShoesShopModel.FK__PHIEU_GIAO__MaKH__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="ShoesShopModel.FK__SAN_PHAM__MaLoai__08EA5793" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ShoesShopModel.DANG_NHAP" Width="1.5" PointX="7.75" PointY="5.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

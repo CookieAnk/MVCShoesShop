@@ -1,0 +1,36 @@
+﻿@model MVCShoesShop.Models.LOAI_SAN_PHAM
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="font-weight:bold;">Xóa loại sản phẩm</h2>
+
+<h3>Bạn có muốn xóa loại sản phẩm này?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Mã loại sản phẩm :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaLoaiSP)
+        </dd>
+        <dt>
+            Tên loại :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TenLoai)
+        </dd>
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            <button>@Html.ActionLink("Trở về", "Index")</button>
+        </div>
+    }
+</div>
