@@ -68,8 +68,10 @@
         {
             @Html.AntiForgeryToken()
             <div class="form-actions no-color">
-                <input type="submit" value="Xóa" class="btn btn-default" /> |
-                @Html.ActionLink("Trở về", "Index")
+                <input type="submit" value="Xóa" class="btn btn-default" style="background-color:yellowgreen; color:black; font-weight:bold; font-size:13pt; padding:5px 15px 5px 15px; text-align:center" />
+                <a href="@Url.Action("Index","CTHD")" style="background-color:burlywood; color:black; font-weight:bold; font-size:13pt; padding:8px 15px 8px 15px; text-align:center">
+                    Trở về
+                </a>
             </div>
     }
         </dd>

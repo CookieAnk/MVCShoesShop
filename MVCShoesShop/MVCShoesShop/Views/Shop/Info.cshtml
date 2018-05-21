@@ -1,0 +1,49 @@
+﻿@using MVCShoesShop.Models
+
+@{
+    ViewBag.Title = "Info";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+@{
+    KHACH_HANG kh = (KHACH_HANG)Session["Taikhoan"];
+}
+
+<h1 style="text-align:center; font-weight:bold">Your Information</h1>
+
+@using (Html.BeginForm())
+{
+    <table align="center">
+        <tr style="height:40px">
+            <td style="font-weight:bold"> Full Name : </td>
+            <td>&nbsp;@kh.TenKH</td>
+        </tr>
+        <tr style="height:40px">
+            <td style="font-weight:bold"> Address : </td>
+            <td>&nbsp;@kh.DiaChi</td>
+        </tr>
+        <tr style="height:40px">
+            <td style="font-weight:bold"> Phone : </td>
+            <td>&nbsp;@kh.SDT</td>
+        </tr>
+        <tr style="height:40px">
+            <td style="font-weight:bold"> Email : </td>
+            <td>&nbsp;@kh.Email </td>
+        </tr>
+        <tr style="height:40px">
+            <td style="font-weight:bold"> IDLogin : </td>
+            <td>&nbsp;@kh.IDLogin </td>
+        </tr>
+
+    </table>
+    <br>
+    <p style="text-align:center">
+        <a href="@Url.Action("Edit","Shop", new { id = kh.MaKH})" style="background-color:deepskyblue; color:black; font-weight:bold; padding: 8px 20px 8px 20px;">
+            Edit
+        </a>
+        &nbsp;
+        <a href="@Url.Action("Index","Shop")" style="background-color:lightcoral; color:black; font-weight:bold; padding: 8px 20px 8px 20px;">
+            Back to home
+        </a>
+    </p>
+}

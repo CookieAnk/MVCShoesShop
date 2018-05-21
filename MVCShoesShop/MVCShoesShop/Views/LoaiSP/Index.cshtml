@@ -7,15 +7,15 @@
 
 <h1 style="font-weight:bold; text-align:center">Quản lý loại sản phẩm</h1>
 
-<p>
-    @Html.ActionLink("Thêm mới", "Create")
-</p>
+<a href="@Url.Action("Create","LoaiSP")" style="background-color:yellowgreen; color:black; font-weight:bold; font-size:15pt; padding:5px 15px 5px 15px">
+    Thêm mới
+</a>
 <table class="table">
     <tr>
-        <th>
+        <th style="text-align:center">
             Mã loại sản phẩm
         </th>
-        <th>
+        <th style="text-align:center">
             Tên loại sản phẩm
         </th>
         <th style="text-align:center"></th>
@@ -23,15 +23,19 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        <td style="text-align:center">
             @Html.DisplayFor(modelItem => item.MaLoaiSP)
         </td>
-        <td>
+        <td style="text-align:center">
             @Html.DisplayFor(modelItem => item.TenLoai)
         </td>
         <td style="text-align:center">
-            @Html.ActionLink("Sửa", "Edit", new { id = item.MaLoaiSP }) |
-            @Html.ActionLink("Xóa", "Delete", new { id = item.MaLoaiSP })
+            <a href="@Url.Action("Edit","LoaiSP", new{ id = item.MaLoaiSP })" style="background-color:deepskyblue; color:black; font-weight:bold; font-size:13pt; padding:5px 15px 5px 15px; text-align:center">
+                Sửa
+            </a> &nbsp;
+            <a href="@Url.Action("Delete","LoaiSP", new{ id = item.MaLoaiSP })" style="background-color:indianred; color:black; font-weight:bold; font-size:13pt; padding:5px 15px 5px 15px; text-align:center">
+                Xóa
+            </a>
         </td>
     </tr>
 }

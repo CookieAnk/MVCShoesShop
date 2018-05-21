@@ -19,7 +19,7 @@
     <!-- Header -->
     <div class="allcontain">
         <div class="header">
-            <ul class="socialicon" style="font-size:20pt">
+            <ul class="socialicon" style="font-size:15pt">
                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                 <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -31,14 +31,17 @@
             @if (Session["Taikhoan"] == null)
             {
                 <ul class="logreg">
-                    <li><a href="@Url.Action("DangNhap","User")" style="font-weight:bold; font-size:20pt">LOGIN</a></li>
-                    <li><a href="@Url.Action("DangKy","User")" style="font-weight:bold; font-size:20pt"><span class="register">RESIGNTER</span></a></li>
+                    <li><a href="@Url.Action("DangNhap", "User")" style="font-weight:bold; font-size:20pt">LOGIN</a></li>
+                    <li><a href="@Url.Action("DangKy", "User")" style="font-weight:bold; font-size:20pt"><span class="register">RESIGNTER</span></a></li>
                 </ul>
             }
             else
             {
                 <ul class="logreg">
-                    <li><a href="@Url.Action("DangXuat","User")" style="font-weight:bold; font-size:20pt">LOGOUT</a></li>
+                    <li style="font-weight:bold; font-size:13pt; color:white;">
+                        <a href="@Url.Action("Info","Shop")">Hello, @Session["HoTen"].ToString() | </a>
+                        <a href="@Url.Action("DangXuat", "User")" style="font-weight:bold; font-size:15pt">LOGOUT</a>
+                    </li>
                 </ul>
             }
         </div>
@@ -67,6 +70,12 @@
                     <li style="font-size:15pt">
                         @Html.Action("GiohangPartial", "GioHang")
                     </li>
+                    @if (Session["Taikhoan"] != null)
+                    {
+                        <li style="font-size:15pt">
+                            <a href="@Url.Action("DonDatHang","User")" style="font-size:15pt;font-weight:bold">Your Order</a>
+                        </li>
+                    }
                 </ul>
             </div>
         </nav>
@@ -118,16 +127,16 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbarmidle">
                     <div class="searchtxt">
-                        <h1>Tìm theo tên</h1>
+                        <h1>Search by name</h1>
                     </div>
                     <form class="navbar-form navbar-left searchformmargin" role="search">
                         <div class="form-group">
-                            @using (Html.BeginForm("Index", "BookStore", FormMethod.Get, new { @class = "navbar-form navbar-right", role = "search", id = "search-form", onsubmit = "return empty();" }))
+                            @using (Html.BeginForm("Index", "Shop", FormMethod.Get, new { @class = "navbar-form navbar-right", role = "search", id = "search-form", onsubmit = "return empty();" }))
                             {
                                 <p style="text-align:center">
                                     @*@Html.TextBox("SearchString")*@
-                                    <input type="text" class="form-control searchform" placeholder="Nhập từ khóa" name="SearchString" style="width:500px; height:45px; background-color:darkslategrey; color:white">
-                                    <input type="submit" value="Tìm kiếm" style="background-color:black; color:white; font-weight:bold; width:120px; height:45px" />
+                                    <input type="text" class="form-control searchform" placeholder="Key Word" name="SearchString" style="width:500px; height:45px; background-color:darkslategrey; color:white">
+                                    <input type="submit" value="Search" style="background-color:black; color:white; font-weight:bold; width:120px; height:45px" />
                                 </p>
                             }
                         </div>

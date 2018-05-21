@@ -38,11 +38,20 @@ namespace MVCShoesShop.Controllers
         // GET: Admin/Details/5
         public ActionResult Details(int? id)
         {
+            SAN_PHAM sAN_PHAM = db.SAN_PHAM.Find(id);
+            Session["SP"] = sAN_PHAM;
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            if (Session["SP"] == null)
+            {
+                return RedirectToAction("Shoes", "SanPham");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SAN_PHAM sAN_PHAM = db.SAN_PHAM.Find(id);
             if (sAN_PHAM == null)
             {
                 return HttpNotFound();
@@ -54,6 +63,14 @@ namespace MVCShoesShop.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            if (Session["SP"] == null)
+            {
+                return RedirectToAction("Shoes", "SanPham");
+            }
             ViewBag.MaLoaiSP = new SelectList(db.LOAI_SAN_PHAM, "MaLoaiSP", "TenLoai");
             return View();
         }
@@ -100,6 +117,14 @@ namespace MVCShoesShop.Controllers
         // GET: Admin/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            if (Session["SP"] == null)
+            {
+                return RedirectToAction("Shoes", "SanPham");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -133,6 +158,14 @@ namespace MVCShoesShop.Controllers
         // GET: Admin/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            if (Session["SP"] == null)
+            {
+                return RedirectToAction("Shoes", "SanPham");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

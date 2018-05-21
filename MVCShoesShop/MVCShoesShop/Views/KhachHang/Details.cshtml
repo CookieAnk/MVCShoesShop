@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 style="font-weight:bold">Chi tiết khách hàng</h2>
+<h1 style="font-weight:bold; text-align:center">Chi tiết khách hàng</h1>
 
 <div>
     <hr />
@@ -45,8 +45,13 @@
         <dd>
             @Html.DisplayFor(model => model.IDLogin)
         </dd>
+        <dt></dt>
+        <dd>
+            <br />
+            <a href="@Url.Action("Index","KhachHang")" style="background-color:burlywood; color:black; font-weight:bold; font-size:13pt; padding:8px 15px 8px 15px; text-align:center">
+                Trở về
+            </a>
+        </dd>
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Trở về", "Index")
-</p>
+

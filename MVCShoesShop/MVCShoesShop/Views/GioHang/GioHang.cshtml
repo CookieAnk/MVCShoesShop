@@ -2,23 +2,25 @@
 @model  List<Giohang>
 
 @{
+    /**/
+
     ViewBag.Title = "GioHang";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
 
 <h1 style="text-align:center; font-weight:bold">Your shopping Cart</h1>
 
-<table class="" align="center" border="1" style="width:1350px; height:300px">
+<table class="" align="center" border="1" style="width:1365px; height:300px">
     <tr style="text-align:center; font-weight:bold">
-        <td> Mã sản phẩm </td>
-        <td> Tên sản phẩm </td>
-        <td> Hình ảnh </td>
-        <td> Số lượng </td>
-        <td> Đơn giá </td>
-        <td> Thành tiền </td>
-        <td width="50px"></td>
-        <td width="50px"></td>
-        <td width="50px"></td>
+        <td> Code </td>
+        <td> Name </td>
+        <td> Images </td>
+        <td> Amount </td>
+        <td> Prices </td>
+        <td> Total </td>
+        <td width="100px"></td>
+        <td width="100px"></td>
+        <td width="100px"></td>
     </tr>
     @foreach (var item in Model)
     {
@@ -43,25 +45,31 @@
                 <td>
                     @String.Format("{0:0.00}", item.dThanhtien) $
                 </td>
-                <td><a href="@Url.Action("Details","ShoesShop", new { id = item.iMasp})"> Chi tiết </a></td>
-                <td> @Html.ActionLink("Xóa", "XoaGiohang", new { @iMaSp = item.iMasp })</td>
-                <td> <input type="submit" value="Cập Nhật" /></td>
+                <td><a href="@Url.Action("Details","ShoesShop", new { id = item.iMasp})" style="background-color:black; color:white; padding:10px 20px 10px 20px"> Details </a></td>
+                <td>
+                    <a href="@Url.Action("XoaGioHang","GioHang", new { @iMaSp = item.iMasp})" style="background-color:indianred; color:white; padding:10px 20px 10px 20px"> Delete </a>
+                </td>
+                <td> <input type="submit" value="Update" style="background-color:royalblue; color:white; padding:9px 20px 9px 20px"/></td>
             }
         </tr>
     }
     <tr style="font-weight: bold; text-align:right; color:red">
-        <td colspan="4"> Số lượng sản phẩm: @ViewBag.Tongsoluong</td>
-        <td colspan="5"> Tổng tiền: @String.Format("{0:0.00}", ViewBag.Tongtien) $ </td>
+        <td colspan="4" style="padding-right:15pt"> Amount of Product: @ViewBag.Tongsoluong</td>
+        <td colspan="5" style="padding-right:15pt"> Total: @String.Format("{0:0.00}", ViewBag.Tongtien) $ </td>
     </tr>
     <tr style="font-weight: bold; color:blue; text-align:right ">
-        <td colspan="9">
-            @Html.ActionLink("Xóa giỏ hàng", "XoaTatcaGiohang")
+        <td colspan="9" style="padding-right:15pt">
+            @*@Html.ActionLink("Delete cart", "XoaTatcaGiohang")*@
+            <a href="@Url.Action("XoaTatcaGiohang", "GioHang")" style="background-color:darkred; color:wheat; font-weight:bold; padding: 8px 20px 8px 20px; text-align:center">Delete cart</a>
         </td>
     </tr>
     <tr style="font-weight: bold; color:blue; text-align:right ">
-        <td colspan="9" align="center">
-            @Html.ActionLink("Đặt hàng", "DatHang", "GioHang")
+        <td colspan="9" align="center" style="">
+            <a href="@Url.Action("DatHang", "GioHang")" style="background-color:yellowgreen; color:black; font-weight:bold; padding: 8px 30px 8px 30px; text-align:center">Order</a>
         </td>
     </tr>
 </table>
+<br>
+<a href="@Url.Action("Index", "Shop")" style="background-color:skyblue; float:right; color:black; font-weight:bold; padding: 8px 20px 8px 20px; text-align:center">Back to Home</a>
+
 

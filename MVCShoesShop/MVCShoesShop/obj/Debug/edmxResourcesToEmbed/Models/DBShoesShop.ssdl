@@ -29,7 +29,7 @@
     </Key>
     <Property Name="MaPGH" Type="int" Nullable="false" />
     <Property Name="MaSP" Type="int" Nullable="false" />
-    <Property Name="SoLuong" Type="money" />
+    <Property Name="SoLuong" Type="int" />
     <Property Name="DonGia" Type="money" />
     <Property Name="ThanhTien" Type="money" />
   </EntityType>

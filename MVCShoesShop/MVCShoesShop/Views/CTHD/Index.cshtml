@@ -7,9 +7,9 @@
 
 <h1 style="text-align:center; font-weight:bold">Quản lý hóa đơn</h1>
 
-<p>
-    @Html.ActionLink("Thêm mới", "Create")
-</p>
+<a href="@Url.Action("Create","CTHD")" style="background-color:yellowgreen; color:black; font-weight:bold; font-size:15pt; padding:5px 15px 5px 15px">
+    Thêm mới
+</a>
 <table class="table">
     <tr>
         <th style="text-align:center">
@@ -49,8 +49,12 @@
                 @String.Format("{0:0.00}", item.ThanhTien) $
             </td>
             <td style="text-align:center">
-                @Html.ActionLink("Chi tiết", "Details", new { id = item.MaHD }) |
-                @Html.ActionLink("Xóa", "Delete", new { id = item.MaHD })
+                <a href="@Url.Action("Details","CTHD", new{ id = item.MaHD })" style="background-color:sandybrown; color:black; font-weight:bold; font-size:13pt; padding:5px 15px 5px 15px; text-align:center">
+                    Chi tiết
+                </a> &nbsp;
+                <a href="@Url.Action("Delete","CTHD", new{ id = item.MaHD })" style="background-color:indianred; color:black; font-weight:bold; font-size:13pt; padding:5px 15px 5px 15px; text-align:center">
+                    Xóa
+                </a>
             </td>
         </tr>
     }

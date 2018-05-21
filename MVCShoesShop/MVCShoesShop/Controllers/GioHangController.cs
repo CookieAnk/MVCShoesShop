@@ -101,7 +101,7 @@ namespace MVCShoesShop.Controllers
             }
             if (lstGiohang.Count == 0)
             {
-                return RedirectToAction("Index", "BookStore");
+                return RedirectToAction("Index", "Shop");
             }
             return RedirectToAction("GioHang");
         }
@@ -126,7 +126,7 @@ namespace MVCShoesShop.Controllers
         {
             List<Giohang> lstGiohang = Laygiohang();
             lstGiohang.Clear();
-            return RedirectToAction("Index", "BookStore");
+            return RedirectToAction("Index", "Shop");
         }
 
         // Hiển thị View Đặt hàng để cập nhật thông tin đơn hàng
@@ -140,7 +140,7 @@ namespace MVCShoesShop.Controllers
             }
             if (Session["Giohang"] == null)
             {
-                return RedirectToAction("Index", "BookStore");
+                return RedirectToAction("Index", "Shop");
             }
 
             //Lấy giỏ hàng từ Session
@@ -155,15 +155,11 @@ namespace MVCShoesShop.Controllers
         {
             //Thêm đơn hàng
             DON_DAT_HANG ddh = new DON_DAT_HANG();
-            PHIEU_GIAO_HANG pgh = new PHIEU_GIAO_HANG();
             KHACH_HANG kh = (KHACH_HANG)Session["Taikhoan"];
             List<Giohang> gh = Laygiohang();
             ddh.MaKH = kh.MaKH;
-            pgh.MaKH = kh.MaKH;
-            pgh.GhiChu = pgh.GhiChu;
             ddh.NgayLapDDH = DateTime.Now;
             data.DON_DAT_HANG.Add(ddh);
-            data.PHIEU_GIAO_HANG.Add(pgh);
             data.SaveChanges();
             foreach (var item in gh)
             {
@@ -174,17 +170,6 @@ namespace MVCShoesShop.Controllers
                 ctdh.DonGia = (decimal)item.dDongia;
                 ctdh.ThanhTien = (decimal)item.dThanhtien;
                 data.CT_DON_DAT_HANG.Add(ctdh);
-                data.SaveChanges();
-            }
-            foreach (var item in gh)
-            {
-                CT_PHIEU_GIAO_HANG ctpgh = new CT_PHIEU_GIAO_HANG();
-                ctpgh.MaPGH = pgh.MaPGH;
-                ctpgh.MaSP = item.iMasp;
-                ctpgh.SoLuong = item.iSoluong;
-                ctpgh.DonGia = (decimal)item.dDongia;
-                ctpgh.ThanhTien = (decimal)item.dThanhtien;
-                data.CT_PHIEU_GIAO_HANG.Add(ctpgh);
                 data.SaveChanges();
             }
             data.SaveChanges();

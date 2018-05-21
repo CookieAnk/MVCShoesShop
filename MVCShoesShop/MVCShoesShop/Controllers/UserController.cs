@@ -34,27 +34,27 @@ namespace MVCShoesShop.Controllers
             var dienthoai = collection["Dienthoai"];
             if (String.IsNullOrEmpty(hoten))
             {
-                ViewData["Loi1"] = "Họ tên khách hàng không được để trống";
+                ViewData["Loi1"] = "Name is require";
             }
             else if (String.IsNullOrEmpty(tendn))
             {
-                ViewData["Loi2"] = "Phải nhập tên đăng nhập";
+                ViewData["Loi2"] = "ID is require";
             }
             else if (String.IsNullOrEmpty(matkhau))
             {
-                ViewData["Loi3"] = "Phải nhập mật khẩu";
+                ViewData["Loi3"] = "Password is require";
             }
             else if (String.IsNullOrEmpty(matkhaunhaplai) || matkhaunhaplai != matkhau)
             {
-                ViewData["Loi4"] = "Phải nhập lại mật khẩu";
+                ViewData["Loi4"] = "Pass doesn't match";
             }
             else if (String.IsNullOrEmpty(email))
             {
-                ViewData["Loi5"] = "Email không được bỏ trống";
+                ViewData["Loi5"] = "Email can't empty";
             }
             else if (String.IsNullOrEmpty(dienthoai))
             {
-                ViewData["Loi6"] = "Phải nhập điện thoại";
+                ViewData["Loi6"] = "Phone can't empty";
             }
             else
             {
@@ -85,11 +85,11 @@ namespace MVCShoesShop.Controllers
             var hoten = collection["HoTen"];
             if (String.IsNullOrEmpty(tendn))
             {
-                ViewData["Loi1"] = "Phải nhập tên đăng nhập";
+                ViewData["Loi1"] = "You must enter ID";
             }
             else if (String.IsNullOrEmpty(matkhau))
             {
-                ViewData["Loi2"] = "Phải nhập mật khẩu";
+                ViewData["Loi2"] = "You must enter password";
             }
             else
             {
@@ -97,11 +97,12 @@ namespace MVCShoesShop.Controllers
                 if (kh != null)
                 {
                     //ViewBag.Thongbao = "Chúc mừng đăng nhập thành công";
-                    Session["Taikhoan"] = kh.TenKH;
+                    Session["Taikhoan"] = kh;
+                    Session["HoTen"] = kh.TenKH;
                     return RedirectToAction("GioHang", "GioHang");
                 }
                 else
-                    ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";
+                    ViewBag.Thongbao = "Your ID or Password isn't right";
             }
             return View();
         }
@@ -110,6 +111,19 @@ namespace MVCShoesShop.Controllers
         {
             Session.Clear();
             return RedirectToAction("Index","Shop");
+        }
+
+        public ActionResult DonDatHang()
+        {
+            if (Session["Taikhoan"] == null || Session["Taikhoan"].ToString() == "")
+            {
+                return RedirectToAction("DangNhap", "User");
+            }
+            if (Session["Giohang"] == null)
+            {
+                return RedirectToAction("Index", "Shop");
+            }
+            return View();
         }
     }
 }

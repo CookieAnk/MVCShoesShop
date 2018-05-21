@@ -7,7 +7,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 style="font-weight:bold;text-align:center">Quản lý khách hàng</h2>
+<h1 style="font-weight:bold;text-align:center">Quản lý khách hàng</h1>
 
 <table class="table">
     <tr>
@@ -41,8 +41,12 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td style="text-align:center">
-                @Html.ActionLink("Chi tiết", "Details", new { id = item.MaKH }) |
-                @Html.ActionLink("Xóa", "Delete", new { id = item.MaKH })
+                <a href="@Url.Action("Details","KhachHang", new{ id = item.MaKH })" style="background-color:sandybrown; color:black; font-weight:bold; font-size:13pt; padding:5px 15px 5px 15px; text-align:center">
+                    Chi tiết
+                </a> &nbsp;
+                <a href="@Url.Action("Delete","KhachHang", new{ id = item.MaKH })" style="background-color:indianred; color:black; font-weight:bold; font-size:13pt; padding:5px 15px 5px 15px; text-align:center">
+                    Xóa
+                </a>
             </td>
         </tr>
     }

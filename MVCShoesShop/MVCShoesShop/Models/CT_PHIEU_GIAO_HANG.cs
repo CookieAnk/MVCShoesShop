@@ -16,7 +16,7 @@ namespace MVCShoesShop.Models
     {
         public int MaPGH { get; set; }
         public int MaSP { get; set; }
-        public Nullable<decimal> SoLuong { get; set; }
+        public Nullable<int> SoLuong { get; set; }
         public Nullable<decimal> DonGia { get; set; }
         public Nullable<decimal> ThanhTien { get; set; }
     

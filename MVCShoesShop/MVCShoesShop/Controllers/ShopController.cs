@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MVCShoesShop.Models;
@@ -50,6 +53,43 @@ namespace MVCShoesShop.Controllers
         public ActionResult AboutUs()
         {
             return View();
+        }
+
+        //Trang Info
+        public ActionResult Info()
+        {
+            return View();
+        }
+
+        //Sửa thông tin
+
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            KHACH_HANG kHACH_HANG = db.KHACH_HANG.Find(id);
+            if (kHACH_HANG == null)
+            {
+                return HttpNotFound();
+            }
+            return View(kHACH_HANG);
+        }
+        // POST: KhachHang/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "MaKH,TenKH,DiaChi,SDT,Email,IDLogin,Pass")] KHACH_HANG kHACH_HANG)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(kHACH_HANG).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(kHACH_HANG);
         }
     }
 }

@@ -8,10 +8,10 @@
 }
 
 <h1 style="font-weight:bold; text-align:center">Quản lý sản phẩm</h1>
+<a href="@Url.Action("Create","SanPham")" style="background-color:yellowgreen; color:black; font-weight:bold; font-size:15pt; padding:5px 15px 5px 15px">
+    Thêm mới
+</a>
 
-<p>
-    @Html.ActionLink("Thêm mới", "Create")
-</p>
 <table class="table">
     <tr>
         <th style="text-align:center">
@@ -51,9 +51,16 @@
                 @Html.DisplayFor(modelItem => item.LOAI_SAN_PHAM.TenLoai)
             </td>
             <td style="text-align:center">
-                @Html.ActionLink("Sửa", "Edit", new { id = item.MaSP }) |
-                @Html.ActionLink("Chi tiết", "Details", new { id = item.MaSP }) |
-                @Html.ActionLink("Xóa", "Delete", new { id = item.MaSP })
+                <a href="@Url.Action("Edit","SanPham", new{ id = item.MaSP })" style="background-color:deepskyblue; color:black; font-weight:bold; font-size:13pt; padding:5px 15px 5px 15px; text-align:center">
+                    Sửa
+                </a> &nbsp;
+                @*@Html.ActionLink("Sửa", "Edit", new { id = item.MaSP })*@
+                <a href="@Url.Action("Details","SanPham", new{ id = item.MaSP })" style="background-color:sandybrown; color:black; font-weight:bold; font-size:13pt; padding:5px 15px 5px 15px; text-align:center">
+                    Chi tiết
+                </a> &nbsp;
+                <a href="@Url.Action("Delete","SanPham", new{ id = item.MaSP })" style="background-color:indianred; color:black; font-weight:bold; font-size:13pt; padding:5px 15px 5px 15px; text-align:center">
+                    Xóa 
+                </a>
             </td>
         </tr>
     }

@@ -34,7 +34,7 @@
           </Key>
           <Property Name="MaPGH" Type="int" Nullable="false" />
           <Property Name="MaSP" Type="int" Nullable="false" />
-          <Property Name="SoLuong" Type="money" />
+          <Property Name="SoLuong" Type="int" />
           <Property Name="DonGia" Type="money" />
           <Property Name="ThanhTien" Type="money" />
         </EntityType>
@@ -312,7 +312,7 @@
           </Key>
           <Property Name="MaPGH" Type="Int32" Nullable="false" />
           <Property Name="MaSP" Type="Int32" Nullable="false" />
-          <Property Name="SoLuong" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SoLuong" Type="Int32" />
           <Property Name="DonGia" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="ThanhTien" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="PHIEU_GIAO_HANG" Relationship="Self.FK__CT_PHIEU___MaPGH__239E4DCF" FromRole="CT_PHIEU_GIAO_HANG" ToRole="PHIEU_GIAO_HANG" />

@@ -1,0 +1,14 @@
+﻿@using MVCShoesShop.Models
+
+@{
+    ViewBag.Title = "DonDatHang";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+@{
+    KHACH_HANG kh = (KHACH_HANG)Session["Taikhoan"];
+}
+
+@kh.TenKH
+@kh.SDT
+

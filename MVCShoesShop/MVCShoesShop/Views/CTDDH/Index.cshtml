@@ -46,8 +46,12 @@
                 @String.Format("{0:0.00}", item.ThanhTien) $
             </td>
             <td style="text-align:center">
-                @Html.ActionLink("Chi tiết", "Details", new { id = item.MaDDH }) |
-                @Html.ActionLink("Xóa", "Delete", new { id = item.MaDDH })
+                <a href="@Url.Action("Details","CTDDH", new{ id = item.MaDDH })" style="background-color:sandybrown; color:black; font-weight:bold; font-size:13pt; padding:5px 15px 5px 15px; text-align:center">
+                    Chi tiết
+                </a> &nbsp;
+                <a href="@Url.Action("Delete","CTDDH", new{ id = item.MaDDH })" style="background-color:indianred; color:black; font-weight:bold; font-size:13pt; padding:5px 15px 5px 15px; text-align:center">
+                    Xóa
+                </a>
             </td>
         </tr>
     }

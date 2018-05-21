@@ -23,14 +23,18 @@
         <dd>
             @Html.DisplayFor(model => model.TenLoai)
         </dd>
+        <dt></dt>
+        <dd></dd>
     </dl>
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Xóa" class="btn btn-default" /> |
-            <button>@Html.ActionLink("Trở về", "Index")</button>
+            <input type="submit" value="Xóa" class="btn btn-default" style="background-color:yellowgreen; color:black; font-weight:bold; font-size:13pt; padding:5px 15px 5px 15px; text-align:center" />
+            <a href="@Url.Action("Index","LoaiSP")" style="background-color:burlywood; color:black; font-weight:bold; font-size:13pt; padding:8px 15px 8px 15px; text-align:center">
+                Trở về
+            </a>
         </div>
     }
 </div>

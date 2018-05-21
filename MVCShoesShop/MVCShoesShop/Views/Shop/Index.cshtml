@@ -45,10 +45,10 @@
                                 <h4 class="price">$ @String.Format("{0:0.00}", pro.DonGia)</h4>
                                 @*<button style="font-weight:bold; width:100px">@Html.ActionLink("Chi tiết", "Details", new { id = pro.MaSP })</button><br>*@
                                 <a href="@Url.Action("Details", "Shop", new { id = pro.MaSP })" class="list-group-item" style="width:100px; text-align:center; float:left; background-color:white; font-weight:bold; color:black">
-                                    Chi tiết
+                                    Details
                                 </a>
-                                <a href="@Url.Action("ThemGioHang", "GioHang", new { @iMaSP = pro.MaSP, @strURL=Request.Url.ToString() }) " class="list-group-item" style="width:100px; text-align:center; float:right; background-color:black; font-weight:bold; color:white">
-                                    Đặt mua
+                                <a href="@Url.Action("ThemGioHang", "GioHang", new { @iMaSP = pro.MaSP, @strURL=Request.Url.ToString() }) " class="list-group-item" style="width:110px; text-align:center; float:right; background-color:black; font-weight:bold; color:white">
+                                    Add to Cart
                                 </a>
                                 @*<button style="font-weight:bold; width:100px">@Html.ActionLink("Add to Cart","ThemGioHang","GioHang", new { @iMaSP = pro.MaSP, @strURL = Request.Url.ToString() })</button><br>*@
                                 <br>

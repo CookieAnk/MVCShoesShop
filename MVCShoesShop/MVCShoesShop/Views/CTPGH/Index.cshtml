@@ -13,6 +13,9 @@
             Mã phiếu giao hàng
         </th>
         <th style="text-align:center">
+            Tên khách hàng
+        </th>
+        <th style="text-align:center">
             Tên sản phẩm
         </th>
         <th style="text-align:center">
@@ -33,6 +36,9 @@
             @Html.DisplayFor(modelItem => item.PHIEU_GIAO_HANG.MaPGH)
         </td>
         <td style="text-align:center">
+            @Html.DisplayFor(modelItem => item.PHIEU_GIAO_HANG.KHACH_HANG.TenKH)
+        </td>
+        <td style="text-align:center">
             @Html.DisplayFor(modelItem => item.SAN_PHAM.TenSP)
         </td>
         <td style="text-align:center">
@@ -45,8 +51,12 @@
             @String.Format("{0:0.00}", item.ThanhTien) $
         </td>
         <td style="text-align:center">
-            @Html.ActionLink("Chi tiết", "Details", new { id = item.MaPGH }) |
-            @Html.ActionLink("Xóa", "Delete", new { id = item.MaPGH })
+            <a href="@Url.Action("Details","CTPGH", new{ id = item.MaPGH })" style="background-color:sandybrown; color:black; font-weight:bold; font-size:13pt; padding:5px 15px 5px 15px; text-align:center">
+                Chi tiết
+            </a> &nbsp;
+            <a href="@Url.Action("Delete","CTPGH", new{ id = item.MaPGH })" style="background-color:indianred; color:black; font-weight:bold; font-size:13pt; padding:5px 15px 5px 15px; text-align:center">
+                Xóa
+            </a>
         </td>
     </tr>
 }
